@@ -1,0 +1,8 @@
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: python3 -m pip install flake8-bugbear
+      - uses: advanced-security/python-lint-code-scanning-action@v1
+        with:
+          linter: flake8
