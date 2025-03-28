@@ -1,8 +1,18 @@
+name: Continuos Integration
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: python3 -m pip install flake8-bugbear
-      - uses: advanced-security/python-lint-code-scanning-action@v1
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      
+      - name: Python Lint Code Scanning Action
+        uses: advanced-security/python-lint-code-scanning-action@v1.1.2
         with:
-          linter: flake8
+          linter: pylint
+          
