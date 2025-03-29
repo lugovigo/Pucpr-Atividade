@@ -19,7 +19,6 @@ jobs:
             '**.py'
             README.md
 
-
   deploy:
     runs-on: ubunto-latest
     needs: deliver
