@@ -1,0 +1,22 @@
+name: Continuos Delivery
+on:
+  push:
+    branches:
+      - main #qualquer branch
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      
+      - name: Simulação Cont Delivery
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: |
+            '**.py'
+            README.md
+
+            #alteração so para testar :D
