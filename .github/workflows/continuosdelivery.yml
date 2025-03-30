@@ -14,7 +14,9 @@ jobs:
       - name: Simulação Cont Delivery
         uses: actions/upload-artifact@v4
         with:
+
           name: Arquivotest.zip
+
           path: |
             **.py
             README.md
@@ -22,6 +24,7 @@ jobs:
 
   deploy:
     runs-on: windows-latest
+
     needs: deliver
     steps:
       - uses: actions/download-artifact@v4
@@ -31,6 +34,4 @@ jobs:
       - name: Display dowload files
         run: ls -r
       
-      #alteração so para testar :D
-        
-          
+
