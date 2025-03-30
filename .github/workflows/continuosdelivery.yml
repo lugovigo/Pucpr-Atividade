@@ -6,7 +6,7 @@ on:
 
 jobs:
   deliver:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -14,13 +14,17 @@ jobs:
       - name: Simulação Cont Delivery
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact.zip
+
+          name: Arquivotest.zip
+
           path: |
-            '**.py'
+            **.py
             README.md
 
+
   deploy:
-    runs-on: ubunto-latest
+    runs-on: windows-latest
+
     needs: deliver
     steps:
       - uses: actions/download-artifact@v4
@@ -30,4 +34,4 @@ jobs:
       - name: Display dowload files
         run: ls -r
       
-      #alteração so para testar
+
