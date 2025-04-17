@@ -15,4 +15,4 @@ async def functeste():
 
 @app.get("/teste02")
 async def functeste02():
-    return {"teste": True, "num_aleatorio": random.randint(10, 5000)}
+    return {"teste": True, "num_aleatorio": random.randint(100, 10000)}
