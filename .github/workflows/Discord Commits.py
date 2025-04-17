@@ -1,7 +1,7 @@
 name: Discord
-on:
-  - push
 
+on:
+  push:
 
 jobs:
   discord:
@@ -13,4 +13,4 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           template: "avatar-with-link"
-          include-extras: true
+          include-extras: true 
