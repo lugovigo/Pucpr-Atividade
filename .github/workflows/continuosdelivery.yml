@@ -6,7 +6,7 @@ on:
 
 jobs:
   deliver:
-    runs-on: windows-latest
+    runs-on: ubunto-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
 
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubunto-latest
 
     needs: deliver
     steps:
@@ -36,7 +36,7 @@ jobs:
       
   docker:
     needs: deploy
-    runs-on: windows-latest
+    runs-on: ubunto-latest
     steps:
       -
         name: Checkout
