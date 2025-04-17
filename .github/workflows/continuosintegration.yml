@@ -18,7 +18,7 @@ jobs:
 
   docker:
     needs: build
-    runs-on: windows-latest
+    runs-on: ubunto-latest
     steps:
       -
         name: Checkout
@@ -32,7 +32,7 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
   discord:
-    runs-on: windows-latest
+    runs-on: ubunto-latest
     steps:
     -uses: actions/checkout@v4
     - name: Discord Webhook
