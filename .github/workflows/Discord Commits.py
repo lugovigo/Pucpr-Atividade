@@ -1,14 +1,13 @@
-name: Discord Commits
-
+name: Discord
 on:
-  push:
-    branches:
-      - main
+  - push
+
 
 jobs:
   discord:
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Send Discord Notification
         uses: Sniddl/discord-commits@v1.6
         with:
