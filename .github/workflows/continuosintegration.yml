@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubunto-latest
+    runs-on: windows-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -16,23 +16,24 @@ jobs:
         with:
           linter: pylint
 
-  docker:
-    needs: build
-    runs-on: ubunto-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v4
-      -
-        # Add support for more platforms with QEMU (optional)
-        # https://github.com/docker/setup-qemu-action
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+#  docker:
+#    needs: build
+#    runs-on: windows-latest
+#    steps:
+#      -
+#        name: Checkout
+#        uses: actions/checkout@v4
+#      -
+#        # Add support for more platforms with QEMU (optional)
+#        # https://github.com/docker/setup-qemu-action
+#        name: Set up QEMU
+#        uses: docker/setup-qemu-action@v3
+#      -
+#        name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v3
+        
   discord:
-    runs-on: ubunto-latest
+    runs-on: windows-latest
     steps:
     -uses: actions/checkout@v4
     - name: Discord Webhook
