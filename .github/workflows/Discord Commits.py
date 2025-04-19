@@ -1,6 +1,6 @@
 name: Discord
 on:
-  - push
+    push:
 
 jobs:
   discord:
