@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.10-slim
 
 WORKDIR /usr/src/app
 
@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 80
 
-CMD [ "fastapi", "dev", "Users\Lucas\Documents\GitHub\Pucpr-Atividade\main.py", "--port", "80" ]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
