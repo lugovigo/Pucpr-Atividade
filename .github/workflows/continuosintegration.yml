@@ -17,12 +17,13 @@ jobs:
         with:
           linter: pylint
 
-  discord:
-    runs-on: windows-latest
-    steps:
-      - name: Send Discord Notification
-        uses: Sniddl/discord-commits@v1.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
+# Não funcionou, mas da para usar de referência :D 
+#  discord:
+#    runs-on: windows-latest
+#    steps:
+#      - name: Send Discord Notification
+#        uses: Sniddl/discord-commits@v1.6
+#        with:
+#          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+#          template: "avatar-with-link"
+#          include-extras: true
