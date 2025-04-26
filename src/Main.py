@@ -4,13 +4,13 @@ import random
 
 app = FastAPI()
 
-# Modelo de dados
+# Modelo de dados do usuário
 class User(BaseModel):
     id: int
     nome: str
     email: str
 
-# "Banco de dados" em memória
+# Lista simulando um banco de dados
 db = []
 
 @app.get("/")

@@ -4,15 +4,15 @@ from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
+# Teste do endpoint root
+# Verifica se retorna a mensagem esperada
+
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello World"}
 
-def test_functeste():
-    response = client.get("/teste01")
-    assert response.status_code == 200
-    assert response.json() == {"message": "teste o k a "}
+# Teste com mock para garantir valor fixo de random.randint
 
 def test_functeste02():
     with patch('random.randint', return_value=666):
@@ -20,25 +20,40 @@ def test_functeste02():
         assert response.status_code == 200
         assert response.json() == {"teste": True, "num_aleatorio": 666}
 
+# Teste de criação de usuário
+
 def test_criar_usuario():
     response = client.post("/usuarios", json={"id": 1, "nome": "Alice", "email": "alice@email.com"})
     assert response.status_code == 200
     assert response.json() == {"id": 1, "nome": "Alice", "email": "alice@email.com"}
 
+# Teste para buscar um usuário existente
+
 def test_obter_usuario():
     client.post("/usuarios", json={"id": 2, "nome": "Bob", "email": "bob@email.com"})
     response = client.get("/usuarios/2")
     assert response.status_code == 200
-    assert response.json()["nome"] == "Bob"
+    assert response.json() == {"id": 2, "nome": "Bob", "email": "bob@email.com"}
+
+# Teste para atualizar um usuário existente
 
 def test_atualizar_usuario():
     client.post("/usuarios", json={"id": 3, "nome": "Carol", "email": "carol@email.com"})
     response = client.put("/usuarios/3", json={"id": 3, "nome": "Carol Updated", "email": "new@email.com"})
     assert response.status_code == 200
-    assert response.json()["nome"] == "Carol Updated"
+    assert response.json() == {"id": 3, "nome": "Carol Updated", "email": "new@email.com"}
+
+# Teste para deletar um usuário existente
 
 def test_deletar_usuario():
     client.post("/usuarios", json={"id": 4, "nome": "Dan", "email": "dan@email.com"})
     response = client.delete("/usuarios/4")
     assert response.status_code == 200
     assert response.json() == {"message": "Usuário deletado"}
+
+# Teste para deletar um usuário que não existe
+
+def test_deletar_usuario_inexistente():
+    response = client.delete("/usuarios/999")
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Usuário não encontrado"}
