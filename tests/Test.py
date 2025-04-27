@@ -1,4 +1,4 @@
-from scr.Main import *
+from src.Main import *
 from unittest.mock import patch
 
 # Lista para armazenar os usuários
