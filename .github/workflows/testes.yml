@@ -22,7 +22,7 @@ jobs:
       - name: test com pytest
         run: |
           pip install pytest pytest-cov pytest-asyncio 
-          pytest --disable-warnings -q --tb=short
+          pytest tests/Test.py --disable-warnings -q --tb=short
 
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
